@@ -11,7 +11,7 @@ const Market: React.FC<Props> = (props: any): JSX.Element => {
     const {data} = props
 
     const display = (): JSX.Element[] => {
-        return data.selections.map((selection: SelectionType) => <Selection key={selection.id} data={selection}/>)
+        return data.selections.map((selection: SelectionType) => <Selection key={selection.id} data={selection} marketName={data.name}/>)
     }
     const title=<span style={{fontWeight: 'bold'}}>{data.name}</span>
     return <Card type='inner' size='small' title={title}>

@@ -15,3 +15,10 @@ export type SelectionType = {
     name: string,
     price: number
 }
+
+export type BetSlipItemsType = BetItemType[]
+export type BetItemType = {
+    id: string,
+    name?: string,
+    price?: number
+}

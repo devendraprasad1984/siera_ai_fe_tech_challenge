@@ -1,21 +1,21 @@
-import {createStore, combineReducers, compose, applyMiddleware} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunk from 'redux-thunk'
-import ErrorReducer from "./reducers/ErrorReducer";
-import MockDataReducer from "./reducers/MockData";
+import ErrorReducer from "./reducers/errorReducer";
+import MockDataReducer from "./reducers/mockData";
+import BetSlipReducer from "./reducers/betSlipReducer";
 
 const sayHi = (param: any) => (next: any) => (action: any) => {
-    console.log('hi on every dispatch', param)
+    console.log('printing state object', store.getState())
     next(action)
 }
 
-const _thunk = applyMiddleware(thunk)
-const enhancers = compose(
-    _thunk
-)
+const _thunk = applyMiddleware(thunk, sayHi)
+const enhancers = compose(_thunk)
 const rootReducers = combineReducers({
     errors: ErrorReducer,
-    mockdata: MockDataReducer
+    mockdata: MockDataReducer,
+    bets: BetSlipReducer
 })
 const store = createStore(rootReducers, undefined, enhancers)
-export type RootState=ReturnType<typeof rootReducers>
+export type RootState = ReturnType<typeof rootReducers>
 export default store

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Link, Route, Routes} from 'react-router-dom'
 import Home from "./home";
 import NoDataOrPage from "./nodata";
-import BetSlip from "./betslip";
+import BetSlip from "./bets/betslip";
 import ENUMS from "../config/enum";
 import {Layout} from 'antd';
 import {MenuOutlined} from "@ant-design/icons";
@@ -25,7 +25,7 @@ const Main: React.FC<Props> = (props): JSX.Element => {
     const displayAllRoutes = () => {
         return <nav>
             <Link to={ENUMS.routes.names.home}>Home</Link>
-            {/*<Link to={ENUMS.routes.names.betSlip}>BetSlip</Link>*/}
+            <Link to={ENUMS.routes.names.betSlip}>BetSlip</Link>
         </nav>
     }
     const handleBetWindow = (mode: boolean) => {
@@ -38,13 +38,10 @@ const Main: React.FC<Props> = (props): JSX.Element => {
                 <MenuOutlined onClick={() => handleBetWindow(!betSlipVisible)} style={fontSize30}/>
             </div>
             <BetSlip visible={betSlipVisible} handleBetWindow={handleBetWindow}/>
-            <Header>
-                {displayAllRoutes()}
-            </Header>
             <Content>
                 <Routes>{prepareRoutes()}</Routes>
             </Content>
-            {/*<Footer>footer goes here</Footer>*/}
+            <Footer>footer goes here</Footer>
         </Layout>
     )
 }

@@ -19,6 +19,7 @@ function App() {
     return (
         <div className="App">
             <h1>bet easy app</h1>
+            <h3 className='handwritting'>completed by devendraprasad1984@gmail.com, +91 9582797772</h3>
             <BrowserRouter>
                 <Main/>
             </BrowserRouter>
