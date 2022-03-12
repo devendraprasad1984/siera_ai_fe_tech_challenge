@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {pullMockData} from "./_redux/api/pull";
 import Endpoints from "./config/endpoints";
 import Test from "./components/test";
+import Main from "./components/main";
 
 function App() {
     const dispatch = useDispatch()
@@ -18,6 +19,7 @@ function App() {
         <div className="App">
             <h1>bet easy app</h1>
             <Test/>
+            <Main/>
         </div>
     );
 }
