@@ -1,17 +1,18 @@
 import MockData from "../actions/mockData";
 import AppError from "../actions/error";
+import {ResponseType} from "../../config/app-data-types";
 
 const initOptions: any = {
     method: 'get',
     'Content-Type': 'application/json',
     'Accept': 'application/json'
 }
-type ResponseType = { data: any, error: boolean, err: any }
+type FunctionResponseType = { data: any, error: boolean, err: any }
 
-export const pullDataFromServer = async (url: string): Promise<ResponseType> => {
+export const pullDataFromServer = async (url: string): Promise<FunctionResponseType> => {
     try {
-        let res = await fetch(url, initOptions)
-        let data = await res.json()
+        let res: any = await fetch(url, initOptions)
+        let data: ResponseType = await res.json()
         return {data, error: false, err: undefined}
     } catch (err: any) {
         console.log(`error while running ${url}`, err)

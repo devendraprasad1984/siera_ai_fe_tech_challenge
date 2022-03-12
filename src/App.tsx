@@ -19,7 +19,6 @@ function App() {
     return (
         <div className="App">
             <h1>bet easy app</h1>
-            <Test/>
             <BrowserRouter>
                 <Main/>
             </BrowserRouter>
