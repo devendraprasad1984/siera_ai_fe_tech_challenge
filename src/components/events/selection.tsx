@@ -8,7 +8,10 @@ type Props = {
 const Selection: React.FC<Props> = (props: any): JSX.Element => {
     const {data} = props
     return <Button>
-        {data.name}-{data.price}
+        <div className='col'>
+            <span style={{fontWeight: 'bold'}}>{data.name}</span>
+            <span style={{fontWeight: 'bold', fontSize: '12px'}}>{data.price}</span>
+        </div>
     </Button>
 }
 export default Selection

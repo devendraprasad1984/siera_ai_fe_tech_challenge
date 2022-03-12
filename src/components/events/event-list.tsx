@@ -15,10 +15,6 @@ const EventList: React.FC<Props> = (props): JSX.Element => {
             return <Event key={event.id} event={event} />
         })
     }
-    return (
-        <div>
-            {displayEventCards()}
-        </div>
-    )
+    return <>{displayEventCards()}</>
 }
 export default EventList
