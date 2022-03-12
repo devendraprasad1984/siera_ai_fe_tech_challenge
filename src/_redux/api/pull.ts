@@ -8,22 +8,20 @@ const initOptions: any = {
 }
 type ResponseType = { data: any, error: boolean, err: any }
 
-export const pullDataFromServer = (url: string): ResponseType => {
-    fetch(url, initOptions)
-        .then((res: any) => res.json())
-        .then((data: any) => {
-            return {data, error: false}
-        })
-        .catch((err: any) => {
-            console.log(`error while running ${url}`, err)
-            return {err, error: true}
-        })
-    return {data: [], error: false, err: undefined}
+export const pullDataFromServer = async (url: string): Promise<ResponseType> => {
+    try {
+        let res = await fetch(url, initOptions)
+        let data = await res.json()
+        return {data, error: false, err: undefined}
+    } catch (err: any) {
+        console.log(`error while running ${url}`, err)
+        return {err, error: true, data: undefined}
+    }
 }
 
 export const pullMockData = (url: string) => {
-    return (dispatch: any) => {
-        let {data, err, error} = pullDataFromServer(url)
+    return async (dispatch: any) => {
+        let {data, err, error} = await pullDataFromServer(url)
         if (!error) dispatch(MockData(data)) //set mock data in central state for app
         if (error) dispatch(AppError(err)) //store all errors for logging purposes
     }

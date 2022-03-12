@@ -4,7 +4,7 @@ import ErrorReducer from "./reducers/ErrorReducer";
 import MockDataReducer from "./reducers/MockData";
 
 const sayHi = (param: any) => (next: any) => (action: any) => {
-    console.log('hi its dispatch', param)
+    console.log('hi on every dispatch', param)
     next(action)
 }
 
@@ -13,8 +13,9 @@ const enhancers = compose(
     _thunk
 )
 const rootReducers = combineReducers({
-    ErrorReducer,
-    MockDataReducer
+    errors: ErrorReducer,
+    mockdata: MockDataReducer
 })
 const store = createStore(rootReducers, undefined, enhancers)
+export type RootState=ReturnType<typeof rootReducers>
 export default store

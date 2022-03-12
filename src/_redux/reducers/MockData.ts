@@ -4,7 +4,7 @@ const init: string[] = []
 const MockDataReducer = (state: any = init, action: any) => {
     switch (action.type) {
         case ENUMS.GET_MOCK:
-            return [...state, action.payload]
+            return [...action.payload]
         default:
             return state
     }
