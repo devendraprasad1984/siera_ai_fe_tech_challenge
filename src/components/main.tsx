@@ -1,11 +1,12 @@
 import React, {useState} from "react";
-import {useNavigate, Link, Routes, Route} from 'react-router-dom'
+import {Link, Route, Routes} from 'react-router-dom'
 import Home from "./home";
 import NoDataOrPage from "./nodata";
 import BetSlip from "./betslip";
 import ENUMS from "../config/enum";
 import {Layout} from 'antd';
 import {MenuOutlined} from "@ant-design/icons";
+import {fontSize30} from "../config/styles";
 
 const {Header, Footer, Content} = Layout;
 
@@ -33,7 +34,9 @@ const Main: React.FC<Props> = (props): JSX.Element => {
     }
     return (
         <Layout>
-            <MenuOutlined onClick={()=>handleBetWindow(!betSlipVisible)}/>
+            <div className='right-flex'>
+                <MenuOutlined onClick={() => handleBetWindow(!betSlipVisible)} style={fontSize30}/>
+            </div>
             <BetSlip visible={betSlipVisible} handleBetWindow={handleBetWindow}/>
             <Header>
                 {displayAllRoutes()}

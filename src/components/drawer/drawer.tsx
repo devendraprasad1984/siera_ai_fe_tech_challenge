@@ -1,5 +1,6 @@
 import React from 'react'
 import {Drawer} from "antd";
+import './drawer.css'
 
 type Props = {
     children: JSX.Element,

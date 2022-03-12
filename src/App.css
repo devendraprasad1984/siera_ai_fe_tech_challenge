@@ -30,3 +30,7 @@
 .ant-btn {
     height: auto !important;
 }
+.right-flex{
+    text-align: right;
+    margin-right: 1rem;
+}
