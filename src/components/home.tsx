@@ -3,8 +3,6 @@ import EventList from "./events/eventList";
 
 type Props = {}
 const Home: React.FC<Props> = (props): JSX.Element => {
-    return <div>
-        <EventList/>
-    </div>
+    return <EventList/>
 }
 export default Home
