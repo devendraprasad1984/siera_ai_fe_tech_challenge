@@ -2,8 +2,7 @@ const ENUMS = {
     routes: {
         names: {
             home: '/',
-            betSlip: '/betslip',
-            profile: '/profile'
+            betSlip: '/betslip'
         }
     }
 }

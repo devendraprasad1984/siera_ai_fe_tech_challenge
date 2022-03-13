@@ -1,9 +1,9 @@
-import ENUMS from "../enums";
+import ActionTypes from "../actionTypes";
+import {ReduxActionTypes} from "../../config/app-data-types";
 
-const init: string[] = []
-const MockDataReducer = (state: any = init, action: any) => {
+const MockDataReducer = (state: any = [], action: ReduxActionTypes) => {
     switch (action.type) {
-        case ENUMS.GET_MOCK:
+        case ActionTypes.GET_MOCK:
             return [...action.payload]
         default:
             return state

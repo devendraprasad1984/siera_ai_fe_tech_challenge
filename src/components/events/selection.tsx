@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {BetItemType, SelectionType} from "../../config/app-data-types";
 import {Button} from "antd";
 import {useDispatch, useSelector} from "react-redux";
@@ -19,10 +19,9 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
     const selectionIdsInBets = betsPlacedByUser.map((_: BetItemType) => _.id)
 
     if (selectionIdsInBets.indexOf(data.id) !== -1) {
-        btnStyle['backgroundColor'] = 'green'
-    }
-    else
-        btnStyle={}
+        btnStyle['backgroundColor'] = '#4edb4e'
+    } else
+        btnStyle = {}
 
     const payload: BetItemType = {
         id: data.id,
@@ -30,9 +29,9 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
         price: data.price
     }
 
-    const handleAddToBet = () => {
+    const handleAddToBet = useCallback(() => {
         dispatch(Actions.betActions.BetItemAdd(payload))
-    }
+    }, [])
     return <Button onClick={handleAddToBet} style={btnStyle}>
         <div className='col'>
             <span style={{fontWeight: 'bold'}}>{data.name}</span>

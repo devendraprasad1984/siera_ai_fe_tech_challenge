@@ -1,8 +1,8 @@
-import ENUMS from "../enums";
+import ActionTypes from "../actionTypes";
 
 const MockData = (payload) => {
     return {
-        type: ENUMS.GET_MOCK,
+        type: ActionTypes.GET_MOCK,
         payload
     }
 }

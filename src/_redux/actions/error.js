@@ -1,8 +1,8 @@
-import ENUMS from "../enums";
+import ActionTypes from "../actionTypes";
 
 const AppError = (payload) => {
     return {
-        type: ENUMS.SET_API_ERROR,
+        type: ActionTypes.SET_API_ERROR,
         payload
     }
 }

@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import 'antd/dist/antd.css'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {pullMockData} from "./_redux/api/pull";
 import Endpoints from "./config/endpoints";
-import Test from "./components/test";
 import Main from "./components/main";
 import {BrowserRouter} from "react-router-dom";
 
@@ -13,7 +12,7 @@ function App() {
     useEffect(() => {
         pullMockData(Endpoints.mockUrl)(dispatch)
         return () => {
-            //app unmount
+            console.log('app is unmounting, some cleanup/log info if required may go here')
         }
     }, [])
     return (

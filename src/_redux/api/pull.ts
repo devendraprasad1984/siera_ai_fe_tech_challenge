@@ -7,9 +7,9 @@ const initOptions: any = {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
 }
-type FunctionResponseType = { data: any, error: boolean, err: any }
+type ApiResponseType = { data: any, error: boolean, err: any }
 
-export const pullDataFromServer = async (url: string): Promise<FunctionResponseType> => {
+export const pullDataFromServer = async (url: string): Promise<ApiResponseType> => {
     try {
         let res: any = await fetch(url, initOptions)
         let data: ResponseType = await res.json()

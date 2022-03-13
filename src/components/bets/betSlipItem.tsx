@@ -17,8 +17,7 @@ const BetSlipItem: React.FC<Props> = (props): JSX.Element => {
     const handleRemoveBetItem=()=>{
         dispatch(Actions.betActions.BetItemRemove(payload))
     }
-    return <div>
-        <span>{betItem.id}</span>
+    return <div style={{textAlign: 'center'}}>
         <h2>{betItem.name}</h2>
         <div><b>{betItem.price}</b></div>
         <div>

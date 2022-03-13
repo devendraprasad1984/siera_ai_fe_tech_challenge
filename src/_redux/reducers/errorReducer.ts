@@ -1,9 +1,9 @@
-import ENUMS from "../enums";
+import ActionTypes from "../actionTypes";
+import {ReduxActionTypes} from "../../config/app-data-types";
 
-const initError: string[] = []
-const ErrorReducer = (state: any = initError, action: any) => {
+const ErrorReducer = (state: any = [], action: ReduxActionTypes) => {
     switch (action.type) {
-        case ENUMS.SET_API_ERROR:
+        case ActionTypes.SET_API_ERROR:
             return [...state, action.payload]
         default:
             return state

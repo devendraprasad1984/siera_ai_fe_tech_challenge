@@ -2,7 +2,7 @@ import React from "react";
 import Logger from "../../hoc/logger";
 import DrawerNav from "../drawer/drawer";
 import {CloseSquareOutlined} from "@ant-design/icons";
-import {fontSize30} from "../../config/styles";
+import styles from "../../config/styles";
 import {useSelector} from "react-redux";
 import {RootState} from "../../_redux/store";
 import {BetItemType, BetSlipItemsType} from "../../config/app-data-types";
@@ -32,7 +32,7 @@ const BetSlip: React.FC<Props> = (props): JSX.Element => {
     >
         <div>
             <div className='right-flex'>
-                <CloseSquareOutlined style={fontSize30} onClick={handleClose}/>
+                <CloseSquareOutlined style={styles.fontSize30} onClick={handleClose}/>
             </div>
             <h1>Bets Chosen By User</h1>
             <div>{displayBetSlipItem()}</div>

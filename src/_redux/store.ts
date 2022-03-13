@@ -4,6 +4,7 @@ import ErrorReducer from "./reducers/errorReducer";
 import MockDataReducer from "./reducers/mockData";
 import BetSlipReducer from "./reducers/betSlipReducer";
 
+//this is just a dummy function to show middleware call
 const sayHi = (param: any) => (next: any) => (action: any) => {
     console.log('printing state object', store.getState())
     next(action)

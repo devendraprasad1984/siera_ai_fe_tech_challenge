@@ -22,3 +22,7 @@ export type BetItemType = {
     name?: string,
     price?: number
 }
+export type ReduxActionTypes={
+    type: 'string',
+    payload: any
+}

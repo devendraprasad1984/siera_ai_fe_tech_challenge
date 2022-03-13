@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.color-green{
+    background-color: #4edb4e;
+}
+
 .ant-card-bordered {
     margin: 1rem !important;
 }
