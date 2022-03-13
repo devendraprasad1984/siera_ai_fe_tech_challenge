@@ -37,6 +37,8 @@ html, body{
 }
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   font-family: "Arial", monospace;
   color: var(--default-text-color);
   word-break: break-all !important;
