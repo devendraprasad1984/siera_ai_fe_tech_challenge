@@ -8,11 +8,10 @@
 #### port is 3004 and can be changed from package.json
 
 #### command to run the test case in console, without coverage is 
-    yarn test
+    yarn test or npm run test
 
 ### antd vs material
     i have chosen antd as design component library for simple reason that i have used in past
-
 
 #assumptions
 #### selection Id is unique
@@ -24,3 +23,36 @@
 ###### due to short of time, I couldnt write enough test cases for the component and hence not checking coverage as part of this submission
 ###### I only have written the snapshot checks and api response checks
 
+
+
+
+
+
+steps I took to deploy to heroku
+
+brew tap heroku/brew && brew install heroku
+curl https://cli-assets.heroku.com/install.sh | sh
+
+heroku login
+Create a new Git repository
+Initialize a git repository in a new or existing directory
+
+$ cd my-project/
+$ git init
+$ heroku git:remote -a siera-test-dp
+Deploy your application
+Commit your code to the repository and deploy it to Heroku using Git.
+
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
+You can now change your main deploy branch from "master" to "main" for both manual and automatic deploys, please follow the instructions here.
+
+Existing Git repository
+For existing repositories, simply add the heroku remote
+$ heroku git:remote -a siera-test-dp
+
+deploy
+$ git add .
+$ git commit -am "final push on heroku"
+$ git push heroku master

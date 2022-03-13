@@ -5,13 +5,14 @@ import {ResponseType} from "../../config/app-data-types";
 const initOptions: any = {
     method: 'get',
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    'Access-Control-Allow-Origin':'*'
 }
 type ApiResponseType = { data: any, error: boolean, err: any }
 
 export const pullDataFromServer = async (url: string): Promise<ApiResponseType> => {
     try {
-        let res: any = await fetch(url, initOptions)
+        let res: any = await fetch(url)
         let data: ResponseType = await res.json()
         return {data, error: false, err: undefined}
     } catch (err: any) {
