@@ -5,11 +5,6 @@ import store from "../_redux/store";
 
 const strMsg = " rendering without crash";
 export const Root=({children})=><Provider store={store}>{children}</Provider> //for redux states and objects like dispatch into scope
-// global.fetch = jest.fn((url,data) =>
-//     Promise.resolve({
-//         json: () => Promise.resolve(data),
-//     })
-// );
 
 export const snapshotAndCrashChecks = (desc, component) => {
     it(`${desc} snapshot`, () => {
