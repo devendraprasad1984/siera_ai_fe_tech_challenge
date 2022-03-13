@@ -3,8 +3,8 @@
 ### the app is hosted on
     https://dpresume.com/siera.ai
 
-#### to start the app, command is:
-    npm start or yarn
+#### to start the app on local, command is:
+    npm run dev or yarn dev
 #### port is 3004 and can be changed from package.json
 
 #### command to run the test case in console, without coverage is 
