@@ -56,3 +56,9 @@ deploy
 $ git add .
 $ git commit -am "final push on heroku"
 $ git push heroku master
+
+
+
+heroku create siera-test-dp --buildpack mars/create-react-app
+
+
