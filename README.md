@@ -1,4 +1,4 @@
-# siera_ai_fe_tech_challenge
+# siera_ai_fe_tech_challenge, deployed at https://siera-test-dp.herokuapp.com/
 
 ### the app is hosted on
     https://dpresume.com/siera.ai
