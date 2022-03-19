@@ -19,4 +19,4 @@ const Event: React.FC<Props> = (props: any): JSX.Element => {
         {display()}
     </Card>
 }
-export default Event
+export default React.memo(Event)

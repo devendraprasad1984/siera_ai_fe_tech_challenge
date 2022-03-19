@@ -24,4 +24,4 @@ const DrawerNav: React.FC<Props> = (props): JSX.Element => {
     </Drawer>
 }
 
-export default DrawerNav
+export default React.memo(DrawerNav)

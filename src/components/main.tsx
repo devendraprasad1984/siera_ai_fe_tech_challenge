@@ -37,4 +37,4 @@ const Main: React.FC<Props> = (props): JSX.Element => {
     )
 }
 
-export default Main
+export default React.memo(Main)

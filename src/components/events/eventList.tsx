@@ -17,4 +17,4 @@ const EventList: React.FC<Props> = (props): JSX.Element => {
     },[eventData])
     return <>{displayEventCards()}</>
 }
-export default EventList
+export default React.memo(EventList)

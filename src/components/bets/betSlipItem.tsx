@@ -26,4 +26,4 @@ const BetSlipItem: React.FC<Props> = (props): JSX.Element => {
     </div>
 }
 
-export default BetSlipItem
+export default React.memo(BetSlipItem)

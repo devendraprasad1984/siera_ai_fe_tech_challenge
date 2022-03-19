@@ -18,4 +18,4 @@ const Market: React.FC<Props> = (props: any): JSX.Element => {
         <div className='row'>{display()}</div>
     </Card>
 }
-export default Market
+export default React.memo(Market)

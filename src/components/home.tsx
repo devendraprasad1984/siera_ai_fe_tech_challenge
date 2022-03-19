@@ -5,4 +5,4 @@ type Props = {}
 const Home: React.FC<Props> = (props): JSX.Element => {
     return <EventList/>
 }
-export default Home
+export default React.memo(Home)

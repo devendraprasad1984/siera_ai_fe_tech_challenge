@@ -39,4 +39,4 @@ const BetSlip: React.FC<Props> = (props): JSX.Element => {
         </div>
     </DrawerNav>
 }
-export default Logger(BetSlip)
+export default React.memo(Logger(BetSlip))

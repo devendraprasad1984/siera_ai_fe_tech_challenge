@@ -39,4 +39,4 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
         </div>
     </Button>
 }
-export default Selection
+export default React.memo(Selection)

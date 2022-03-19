@@ -7,10 +7,24 @@ import Endpoints from "./config/endpoints";
 import Main from "./components/main";
 import {BrowserRouter} from "react-router-dom";
 
+// const fetchAtLoad = (dispatch: any) => {
+//     console.log('loading data')
+//     pullMockData(Endpoints.mockUrl)(dispatch)
+// }
+
 function App() {
     const dispatch = useDispatch()
+    // fetchAtLoad(dispatch)
     useEffect(() => {
-        pullMockData(Endpoints.mockUrl)(dispatch)
+        if ('requestIdleCallback' in window) {
+            // Use requestIdleCallback to schedule work.
+            window.requestIdleCallback(() => pullMockData(Endpoints.mockUrl)(dispatch))
+        } else {
+            //deferred callback, run calcs or pulls in separate thread than main thread
+            setTimeout(() => {
+                pullMockData(Endpoints.mockUrl)(dispatch)
+            }, 50)
+        }
         return () => {
             console.log('app is unmounting, some cleanup/log info if required may go here')
         }
@@ -26,4 +40,4 @@ function App() {
     );
 }
 
-export default App;
+export default React.memo(App);
