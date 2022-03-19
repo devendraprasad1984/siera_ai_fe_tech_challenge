@@ -32,6 +32,7 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
     const handleAddToBet = useCallback(() => {
         dispatch(Actions.betActions.BetItemAdd(payload))
     }, [])
+
     return <Button onClick={handleAddToBet} style={btnStyle}>
         <div className='col'>
             <span style={{fontWeight: 'bold'}}>{data.name}</span>

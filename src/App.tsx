@@ -17,7 +17,7 @@ function App() {
     // fetchAtLoad(dispatch)
     useEffect(() => {
         if ('requestIdleCallback' in window) {
-            // Use requestIdleCallback to schedule work.
+            // Use requestIdleCallback to schedule work. doesnt gurantee of code run
             window.requestIdleCallback(() => pullMockData(Endpoints.mockUrl)(dispatch))
         } else {
             //deferred callback, run calcs or pulls in separate thread than main thread
@@ -32,7 +32,7 @@ function App() {
     return (
         <div className="App">
             <h1>bet easy app</h1>
-            <h3 className='handwritting'>completed by devendraprasad1984@gmail.com, +91 9582797772</h3>
+            <div className='handwritting'>completed by devendraprasad1984@gmail.com, +91 9582797772</div>
             <BrowserRouter>
                 <Main/>
             </BrowserRouter>
