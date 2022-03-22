@@ -4,6 +4,9 @@ const ENUMS = {
             home: '/',
             betSlip: '/betslip'
         }
+    },
+    consts:{
+        TeamToWin: 'Team to Win'
     }
 }
 export default ENUMS

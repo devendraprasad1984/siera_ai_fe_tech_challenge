@@ -1,5 +1,5 @@
 import AppError from "./error";
-import MockData from "./mockData";
+import {MockData} from "./mockData";
 import * as betActions from './betItem'
 
 const Actions= {

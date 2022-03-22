@@ -11,7 +11,7 @@ type Props = {
 }
 const Selection: React.FC<Props> = (props: any): JSX.Element => {
     const {data, marketName} = props
-
+    // console.log('in sel', data)
     let btnStyle: any = {}
     const dispatch = useDispatch()
 

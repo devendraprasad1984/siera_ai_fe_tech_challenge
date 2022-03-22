@@ -1,9 +1,14 @@
 import ActionTypes from "../actionTypes";
 
-const MockData = (payload) => {
+export const MockData = (payload) => {
     return {
         type: ActionTypes.GET_MOCK,
         payload
     }
 }
-export default MockData
+export const actionGetSetSelCount = (payload) => {
+    return {
+        type: ActionTypes.GET_SET_TEAM2WIN_COUNT
+    }
+}
+// export default MockData

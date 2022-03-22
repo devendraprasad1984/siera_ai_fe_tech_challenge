@@ -1,4 +1,4 @@
-import MockData from "../actions/mockData";
+import {MockData} from "../actions/mockData";
 import AppError from "../actions/error";
 import {ResponseType} from "../../config/app-data-types";
 
@@ -6,7 +6,7 @@ const initOptions: any = {
     method: 'get',
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Access-Control-Allow-Origin':'*'
+    'Access-Control-Allow-Origin': '*'
 }
 type ApiResponseType = { data: any, error: boolean, err: any }
 
@@ -24,7 +24,9 @@ export const pullDataFromServer = async (url: string): Promise<ApiResponseType> 
 export const pullMockData = (url: string) => {
     return async (dispatch: any) => {
         let {data, err, error} = await pullDataFromServer(url)
-        if (!error) dispatch(MockData(data)) //set mock data in central state for app
+        if (!error) {
+            dispatch(MockData(data)) //set mock data in central state for app
+        }
         if (error) dispatch(AppError(err)) //store all errors for logging purposes
     }
 }
