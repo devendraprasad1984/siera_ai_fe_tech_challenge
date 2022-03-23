@@ -1,5 +1,5 @@
 import ENUMS from "../../../config/enum";
-import {ResponseType} from "../../../config/app-data-types";
+import {EventType, ResponseType, MarketType, ReduxActionTypes} from "../../../config/app-data-types";
 
 export const ModifyMockData = (mockData: ResponseType) => {
     let allMarkets = mockData.filter((x: any) => x.markets.length !== 0)
@@ -15,13 +15,23 @@ export const ModifyMockData = (mockData: ResponseType) => {
 
 }
 
-export const GETSETTeamToWinCount = (data: ResponseType, selId: string) => {
-    let newDataObj = data.map((row: any) => {
-        for (let market of row.markets) {
-            market["isSelected"] = 1
-        }
-        return row
-    })
-    return newDataObj
+export const GETSETTeamToWinCount = (data: any[], payload: any) => {
+    let newDataObj = [...data]
+    let {selId, type}=payload
+    for (let evt of newDataObj) {
+        let markets = evt.markets as MarketType[]
+        for (let mkt of markets) {
+            let {selections, isTeamToWin, isSelected} = mkt
+            if (!isTeamToWin) continue
 
+            let matchedSelection = selections.filter(x => x.id === selId)
+            if (matchedSelection.length === 0) continue
+            if (matchedSelection.length === 1)
+                if(type==='add')
+                    mkt.isSelected = 1
+                else if(type==='remove')
+                    mkt.isSelected = 0
+        }
+    }
+    return newDataObj
 }

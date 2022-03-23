@@ -1,10 +1,10 @@
 import AppError from "./error";
-import {MockData} from "./mockData";
+import * as mockActions from "./mockData";
 import * as betActions from './betItem'
 
 const Actions= {
     AppError,
-    MockData,
+    mockActions,
     betActions
 }
 export default Actions

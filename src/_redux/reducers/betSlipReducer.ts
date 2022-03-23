@@ -24,7 +24,6 @@ const BetSlipReducer = (state: BetItemType[] = [], action: ReduxActionTypes) => 
             let filter = state.filter((slip: any) => slip.id !== itemToBeRemovedId)
             return [...filter]
         default:
-            console.log(action.type)
             return state
     }
 }

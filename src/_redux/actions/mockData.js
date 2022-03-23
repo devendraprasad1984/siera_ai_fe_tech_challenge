@@ -8,7 +8,7 @@ export const MockData = (payload) => {
 }
 export const actionGetSetSelCount = (payload) => {
     return {
-        type: ActionTypes.GET_SET_TEAM2WIN_COUNT
+        type: ActionTypes.GET_SET_TEAM2WIN_COUNT,
+        payload
     }
 }
-// export default MockData

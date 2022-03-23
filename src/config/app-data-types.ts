@@ -9,6 +9,8 @@ export type MarketType = {
     id: string,
     name: string,
     selections: SelectionType[]
+    isTeamToWin: boolean,
+    isSelected: number
 }
 export type SelectionType = {
     id: string,
