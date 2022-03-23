@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, {useMemo} from 'react'
 import {useSelector} from "react-redux";
 import {RootState} from "../../_redux/store";
 import {EventType, ResponseType} from "../../config/app-data-types";
@@ -13,14 +13,8 @@ const displayEventCards = (eventData: any) => {
 
 const EventList: React.FC<Props> = (props): JSX.Element => {
     const {} = props
-    // const [dataUpdated, setIsDataUpdated] = useState(false)
     const eventData: ResponseType = useSelector((_: RootState) => _.mockdata)
     const displayEventFromCache = useMemo(() => displayEventCards(eventData), [eventData])
-    // console.log('in event list', eventData)
-    // useEffect(() => {
-    //     setIsDataUpdated(p => !p)
-    // }, [eventData])
-
     return <>{displayEventFromCache}</>
 }
 export default React.memo(EventList)

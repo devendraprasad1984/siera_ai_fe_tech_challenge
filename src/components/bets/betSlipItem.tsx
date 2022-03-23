@@ -16,6 +16,7 @@ const BetSlipItem: React.FC<Props> = (props): JSX.Element => {
     }
     const handleRemoveBetItem=()=>{
         dispatch(Actions.betActions.BetItemRemove(payload))
+        dispatch(Actions.mockActions.actionGetSetSelCount({selId: payload.id, type: 'remove'}))
     }
     return <div style={{textAlign: 'center'}}>
         <h2>{betItem.name}</h2>

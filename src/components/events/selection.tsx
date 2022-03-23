@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useState} from "react";
 import {BetItemType, SelectionType} from "../../config/app-data-types";
 import {Button} from "antd";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,24 +8,36 @@ import {RootState} from "../../_redux/store";
 type Props = {
     data: SelectionType,
     marketName: string,
-    isTeamToWin: boolean,
-    isSelected: number
+    marketId: string
 }
-const Selection: React.FC<Props> = (props: any): JSX.Element => {
-    const {data, marketName, isTeamToWin, isSelected} = props
-    const dontAllowClicks = (isTeamToWin && isSelected === 1)
-    // console.log('in sel', data)
-    let btnStyle: any = {}
-    const dispatch = useDispatch()
 
+const getIfTeam2WinAndIsSelected = (marketData: any[], marketId: string) => {
+    for (let marketArr of marketData) {
+        for (let m of marketArr) {
+            if (m.id !== marketId) continue
+            if (m.id === marketId) {
+                let {isTeamToWin, isSelected} = m
+                return {isTeamToWin, isSelected}
+            }
+        }
+    }
+    return {isTeamToWin: false, isSelected: 0}
+}
+
+const Selection: React.FC<Props> = (props: any): JSX.Element => {
+    const {data, marketName, marketId} = props
+    const [dontAllowClick, setDontAllowClick] = useState(false)
+
+    const dispatch = useDispatch()
+    let btnStyle: any = {}
+
+    const marketData: any[] = useSelector((_: RootState) => _.mockdata.map(x => x.markets))
     const betsPlacedByUser: BetItemType[] = useSelector((_: RootState) => _.bets)
     const selectionIdsInBets = betsPlacedByUser.map((_: BetItemType) => _.id)
 
-    if (selectionIdsInBets.indexOf(data.id) !== -1 && !dontAllowClicks) {
-        dispatch(Actions.mockActions.actionGetSetSelCount({selId: data.id, type: 'add'}))
+    if (selectionIdsInBets.indexOf(data.id) !== -1) {
         btnStyle['backgroundColor'] = '#4edb4e'
     } else {
-        dispatch(Actions.mockActions.actionGetSetSelCount({selId: data.id, type: 'remove'}))
         btnStyle = {}
     }
 
@@ -36,7 +48,11 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
     }
 
     const handleAddToBet = useCallback(() => {
-        if (dontAllowClicks) return //dont allow if isTeamToWin and already selected
+        const {isTeamToWin, isSelected} = getIfTeam2WinAndIsSelected(marketData, marketId)
+        let dontAllow = (isTeamToWin && isSelected === 1)
+        setDontAllowClick(p => dontAllow)
+        if (dontAllow) return
+        dispatch(Actions.mockActions.actionGetSetSelCount({selId: data.id, type: 'add'}))
         dispatch(Actions.betActions.BetItemAdd(payload))
     }, [])
 
