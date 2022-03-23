@@ -14,10 +14,15 @@
     i have chosen antd as design component library for simple reason that i have used in past
 
 #assumptions
+#### event Id is unique
+#### market Id is unique
 #### selection Id is unique
 #### api response will never be null or in error
 #### hence have not written error boundary component here
 #### have used Redux for central state management
+
+### Updating Base Object from API
+at market level, I am keeping 2 flags one to check, if its team 2 win and if it is, isTeamSelected for Betting already. so only one selection allowed. On betting removal, the isSelected flag is reset
 
 #appologies:
 ###### due to short of time, I couldnt write enough test cases for the component and hence not checking coverage as part of this submission
