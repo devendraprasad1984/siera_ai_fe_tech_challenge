@@ -13,7 +13,7 @@ type Props = {
 }
 const Selection: React.FC<Props> = (props: any): JSX.Element => {
     const {data, marketName, isTeamToWin, isSelected} = props
-    const dontAllowClicks=(isTeamToWin && isSelected === 1)
+    const dontAllowClicks = (isTeamToWin && isSelected === 1)
     // console.log('in sel', data)
     let btnStyle: any = {}
     const dispatch = useDispatch()
@@ -22,9 +22,12 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
     const selectionIdsInBets = betsPlacedByUser.map((_: BetItemType) => _.id)
 
     if (selectionIdsInBets.indexOf(data.id) !== -1 && !dontAllowClicks) {
+        dispatch(Actions.mockActions.actionGetSetSelCount({selId: data.id, type: 'add'}))
         btnStyle['backgroundColor'] = '#4edb4e'
-    } else
+    } else {
+        dispatch(Actions.mockActions.actionGetSetSelCount({selId: data.id, type: 'remove'}))
         btnStyle = {}
+    }
 
     const payload: BetItemType = {
         id: data.id,
@@ -34,8 +37,6 @@ const Selection: React.FC<Props> = (props: any): JSX.Element => {
 
     const handleAddToBet = useCallback(() => {
         if (dontAllowClicks) return //dont allow if isTeamToWin and already selected
-        if (!dontAllowClicks)
-            dispatch(Actions.mockActions.actionGetSetSelCount({selId: data.id, type:'add'}))
         dispatch(Actions.betActions.BetItemAdd(payload))
     }, [])
 

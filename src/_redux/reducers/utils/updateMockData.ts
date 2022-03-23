@@ -21,11 +21,11 @@ export const GETSETTeamToWinCount = (data: any[], payload: any) => {
     for (let evt of newDataObj) {
         let markets = evt.markets as MarketType[]
         for (let mkt of markets) {
-            let {selections, isTeamToWin, isSelected} = mkt
+            let {selections, isTeamToWin} = mkt
             if (!isTeamToWin) continue
 
             let matchedSelection = selections.filter(x => x.id === selId)
-            if (matchedSelection.length === 0) continue
+            if (matchedSelection.length === 0) break
             if (matchedSelection.length === 1)
                 if(type==='add')
                     mkt.isSelected = 1
