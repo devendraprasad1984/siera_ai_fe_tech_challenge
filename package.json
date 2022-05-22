@@ -41,11 +41,12 @@
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.0"
   },
+  "homepage": "bets/",
   "scripts": {
-    "start": "serve -s build",
+    "start": "serve -s build/bets",
     "eject": "react-scripts eject",
     "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "BUILD_PATH='./build/bets' react-scripts build",
     "lint": "lint-staged",
     "test": "CI=false react-scripts test --verbose --env=jsdom --findRelatedTests=**/*test.{js,ts,tsx,jsx} -u",
     "testx": "CI=true react-scripts test --verbose --env=jsdom --watchAll=false --findRelatedTests=**/*test.{js,ts,tsx,jsx} --bail --forceExit -u",
